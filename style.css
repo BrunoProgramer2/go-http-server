@@ -1,0 +1,7 @@
+:root {
+    --font:monospace
+}
+
+h1,h2 {
+    font-family: var(--font);
+} 
