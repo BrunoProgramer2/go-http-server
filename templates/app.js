@@ -3,11 +3,10 @@ const URL_API_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZS
 
 const supa = supabase.createClient(URL_API,URL_API_KEY)
 
-user = []
-
 document.getElementById("button").addEventListener("click",() => {
     const {err, session, userSupa} = supa.auth.signIn({
         "provider":"github"
     })
 })
-console.log(supa.auth.session())
+const { user } = supa.auth.session()
+document.getElementById("githubAvatar").src = user.app_metadata.user_metadata.avatar_url
