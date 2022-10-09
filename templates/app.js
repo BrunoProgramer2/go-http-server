@@ -8,5 +8,4 @@ document.getElementById("button").addEventListener("click",() => {
         "provider":"github"
     })
 })
-const { user } = supa.auth.session()
-document.getElementById("githubAvatar").src = user.app_metadata.user_metadata.avatar_url
+document.getElementById("text").innerHTML += supa.auth.session()
