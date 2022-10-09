@@ -10,15 +10,11 @@ import (
 )
 
 func main() {
-	loadEnv()
-	port := os.Getenv("PORT")
-	http.ListenAndServe(port, pkg.SetupRouter())
-}
-
-func loadEnv() {
 	err := godotenv.Load()
 
 	if err != nil {
 		panic(err)
 	}
+	port := os.Getenv("PORT")
+	http.ListenAndServe(port, pkg.SetupRouter())
 }
