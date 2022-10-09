@@ -9,5 +9,5 @@ import (
 
 func main() {
 	fmt.Print("Server on http://localhost:3000")
-	http.ListenAndServe(":3000", pkg.SetupRouter())
+	http.ListenAndServe(":80", pkg.SetupRouter())
 }
