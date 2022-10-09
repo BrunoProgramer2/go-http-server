@@ -1,13 +1,24 @@
 package main
 
 import (
-	"fmt"
 	"net/http"
 
+	"os"
+
 	"BrunoProgramer2.github.io/go-http-server/pkg"
+	"github.com/joho/godotenv"
 )
 
 func main() {
-	fmt.Print("Server on http://localhost:3000")
-	http.ListenAndServe(":80", pkg.SetupRouter())
+	loadEnv()
+	port := os.Getenv("PORT")
+	http.ListenAndServe(port, pkg.SetupRouter())
+}
+
+func loadEnv() {
+	err := godotenv.Load()
+
+	if err != nil {
+		panic(err)
+	}
 }
